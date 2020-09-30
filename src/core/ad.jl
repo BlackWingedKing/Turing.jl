@@ -198,3 +198,4 @@ for F in (:link, :invlink)
         end
     end
 end
+include("compat/reversediff.jl")

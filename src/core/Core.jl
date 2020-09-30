@@ -16,17 +16,11 @@ using StatsFuns: logsumexp, softmax
 using Requires
 
 import ZygoteRules
+using ReverseDiff, Memoization
 
 include("container.jl")
 include("ad.jl")
 include("deprecations.jl")
-
-function __init__()
-    @require ReverseDiff = "37e2e3b7-166d-5795-8a7a-e32c996b4267" begin
-        include("compat/reversediff.jl")
-        export ReverseDiffAD, getrdcache, setrdcache, emptyrdcache
-    end
-end
 
 export  @model,
         @varname,
@@ -61,4 +55,5 @@ export  @model,
         @logprob_str,
         @prob_str
 
+export ReverseDiffAD, getrdcache, setrdcache, emptyrdcache
 end # module
